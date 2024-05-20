@@ -13,5 +13,4 @@ public class AirportService {
     public Airport saveAirport(Airport airport) {
         return airportRepository.save(airport);
     }
-
 }
