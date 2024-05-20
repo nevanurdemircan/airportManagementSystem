@@ -9,6 +9,7 @@ import java.util.List;
 @Setter
 @Getter
 public class PilotDto {
+    private int id;
     private String name;
     private String gender;
     private int age;

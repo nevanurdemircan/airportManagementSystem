@@ -31,11 +31,11 @@ public class SecurityConfig {
         return http
                 .csrf(AbstractHttpConfigurer::disable)
                 .authorizeHttpRequests(x ->
-                        x.requestMatchers("/auth/welcome/**", "/auth/addNewUser/**", "/auth/generateToken/**").permitAll()
+                        x.requestMatchers("/user/addNewUser/**", "/token/generateToken/**","/airport/save","/flightSchedule/**","/pilot/**","/plane/**","/price/**").permitAll()
                 )
                 .authorizeHttpRequests(x ->
-                        x.requestMatchers("/auth/user").authenticated()
-                                .requestMatchers("/auth/admin").hasRole("ADMIN")
+                        x.requestMatchers("/user/loginUser").authenticated()
+                                .requestMatchers("/user/loginAdmin").hasRole("ADMIN")
                 )
                 .sessionManagement(x -> x.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .authenticationProvider(authenticationProvider())
