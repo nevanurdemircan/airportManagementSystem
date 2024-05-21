@@ -1,6 +1,5 @@
 package com.example.airportManagementSystem.dto;
 
-import com.example.airportManagementSystem.entity.Role;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -8,7 +7,6 @@ import lombok.Setter;
 @Setter
 public class UserDto {
     private String name;
-    private String email;
+    private String mail;
     private String password;
-    private Role rol;
 }

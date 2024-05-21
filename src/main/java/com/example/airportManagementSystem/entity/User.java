@@ -2,9 +2,6 @@ package com.example.airportManagementSystem.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
-import org.springframework.security.core.userdetails.UserDetails;
-
-import java.util.Set;
 
 @Data
 @Entity
@@ -17,7 +14,7 @@ public class User {
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     private String name;
-    private String userName;
+    private String mail;
     private String password;
 
 }
