@@ -8,4 +8,5 @@ import lombok.Setter;
 public class PriceDto {
     private int businessSeatPrice;
     private int economySeatPrice;
+    private int flightScheduleId;
 }

@@ -37,9 +37,9 @@ public class AuthenticationController {
             authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(authenticationRequest.getMail(), authenticationRequest.getPassword()));
 
         } catch (BadCredentialsException e) {
-            throw new BadCredentialsException("Incorrect username or password");
+            throw new BadCredentialsException("Yanlış kullanıcı adı ya da parola");
         } catch (DisabledException disabledException) {
-            response.sendError(HttpServletResponse.SC_NOT_FOUND, "USER IS NOT CREATED, REGİSTER USER FİRST.");
+            response.sendError(HttpServletResponse.SC_NOT_FOUND, "Kullanıcı oluşturulamadı, önce kullanıcıyı kaydedin.");
             return null;
 
         }
@@ -52,7 +52,7 @@ public class AuthenticationController {
     public ResponseEntity<?> register(@RequestBody SignUpRequest signUpRequest) {
         UserDto createdUser = authService.createUser(signUpRequest);
         if (createdUser == null) {
-            return new ResponseEntity<>("user oluşturulamadı tekrar deneyin", HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>("user oluşturulamadı tekrar deneyin.", HttpStatus.BAD_REQUEST);
         }
         return new ResponseEntity<>(createdUser, HttpStatus.CREATED);
     }

@@ -4,6 +4,7 @@ import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
+import java.time.LocalDate;
 import java.util.List;
 
 @Entity
@@ -13,8 +14,11 @@ public class FlightSchedule {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int id;
+    private LocalDate date;
     private int time;
     private int delayTime;
+    private String departure;
+    private String arrival;
 
     @OneToMany(mappedBy = "flightSchedule")
     private List<Plane> planes;
@@ -24,4 +28,9 @@ public class FlightSchedule {
 
     @OneToMany(mappedBy = "flightSchedule")
     private List<Airport> airports;
+
+    @OneToMany(mappedBy = "flightSchedule")
+    private List<Price> prices;
+
+
 }

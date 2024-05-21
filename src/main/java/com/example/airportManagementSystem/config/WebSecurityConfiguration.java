@@ -41,7 +41,7 @@ public class WebSecurityConfiguration {
                 .sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
-                .addFilterBefore((Filter) jwtRequestFilters, UsernamePasswordAuthenticationFilter.class)
+                .addFilterBefore(jwtRequestFilters, UsernamePasswordAuthenticationFilter.class)
                 .logout()
                 .logoutUrl("/logout")
                 .permitAll()

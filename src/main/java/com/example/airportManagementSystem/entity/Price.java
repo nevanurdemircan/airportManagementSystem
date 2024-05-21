@@ -1,9 +1,7 @@
 package com.example.airportManagementSystem.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import jakarta.persistence.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -16,4 +14,9 @@ public class Price {
     private int id;
     private int businessSeatPrice;
     private int economySeatPrice;
+
+    @ManyToOne
+    @JoinColumn(name = "flight_schedule_id")
+    @JsonIgnore
+    private FlightSchedule flightSchedule;
 }
