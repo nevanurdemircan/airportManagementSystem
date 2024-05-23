@@ -55,4 +55,10 @@ public class FlightScheduleController {
         List<FlightSchedule> flightSchedules = flightScheduleService.getAllFlightsSortedByPriceDesc();
         return ResponseEntity.ok(flightSchedules);
     }
+
+    @GetMapping("/seat")
+    public ResponseEntity<List<Integer>> findAvailableSeats(FlightSchedule flightSchedule){
+        List<Integer> availableSeats = flightScheduleService.findAvailableSeats(flightSchedule);
+        return ResponseEntity.ok(availableSeats);
+    }
 }

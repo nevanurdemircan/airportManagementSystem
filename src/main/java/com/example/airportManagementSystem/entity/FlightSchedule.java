@@ -1,5 +1,6 @@
 package com.example.airportManagementSystem.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -36,5 +37,10 @@ public class FlightSchedule {
     @OneToMany(mappedBy = "flightSchedule")
     private List<Price> prices;
 
+    @OneToMany(mappedBy = "flightSchedule")
+    private List<User> users;
 
+    @OneToMany(mappedBy = "flightSchedule")
+    @JsonIgnore
+    private List<Reservation> reservations;
 }

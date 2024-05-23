@@ -2,7 +2,6 @@ package com.example.airportManagementSystem.config;
 
 import com.example.airportManagementSystem.filter.CorsFilter;
 import com.example.airportManagementSystem.filter.JwtRequestFilters;
-import jakarta.servlet.Filter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -36,7 +35,8 @@ public class WebSecurityConfiguration {
                 .requestMatchers("/auth/**")
                 .permitAll()
                 .and()
-                .authorizeHttpRequests().requestMatchers("/api/**")
+                .authorizeHttpRequests()
+                .requestMatchers("/api/**")
                 .authenticated().and()
                 .sessionManagement()
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
